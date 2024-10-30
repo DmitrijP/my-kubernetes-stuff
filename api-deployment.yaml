@@ -17,9 +17,6 @@ spec:
       containers:
         - name: synergychat-api
           image: bootdotdev/synergychat-api:latest
-          env:
-            - name: API_PORT
-              valueFrom: 
-                configMapKeyRef:
-                  key: API_PORT
-                  name: synergychat-api-configmap
+          envFrom:
+            - configMapRef:
+                name: synergychat-api-configmap
